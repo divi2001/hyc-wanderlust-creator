@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin } from "lucide-react";
+import hycLogo from "@/assets/hyc-logo.png";
 
 const Header = () => {
   return (
@@ -28,13 +29,16 @@ const Header = () => {
 
         {/* Main navigation */}
         <div className="flex items-center justify-between py-4">
-          <div className="flex items-center">
-            <h1 className="text-2xl font-bold bg-hero-gradient bg-clip-text text-transparent">
-              HYC Travels
-            </h1>
-            <span className="ml-3 text-sm text-muted-foreground">
-              Tailor-Made Dream Journeys
-            </span>
+          <div className="flex items-center gap-3">
+            <img src={hycLogo} alt="HYC Travels Logo" className="h-12 w-auto" />
+            <div className="flex flex-col">
+              <h1 className="text-2xl font-bold bg-hero-gradient bg-clip-text text-transparent leading-tight">
+                HYC Travels
+              </h1>
+              <span className="text-xs text-muted-foreground">
+                Travel Beyond Borders
+              </span>
+            </div>
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">
