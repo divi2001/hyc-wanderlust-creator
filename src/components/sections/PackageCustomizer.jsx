@@ -15,9 +15,9 @@ const PackageCustomizer = () => {
   const { toast } = useToast();
 
   const countries = [
-    "Dubai, UAE", "Paris, France", "Tokyo, Japan", "Bali, Indonesia",
-    "London, UK", "New York, USA", "Singapore", "Thailand",
-    "Australia", "Switzerland", "Maldives", "Turkey"
+    "U.A.E. (DUBAI)", "THAILAND", "VIETNAM", "ABU DHABI",
+    "MALDIVES", "U.K. (LONDON)", "SINGAPORE", "INDONESIA (BALI)",
+    "JAPAN", "MALAYSIA", "AUSTRALIA", "U.S.A."
   ];
 
   const calculatePrice = () => {
@@ -57,7 +57,7 @@ const PackageCustomizer = () => {
             Customize Your <span className="bg-sunset-gradient bg-clip-text text-transparent">Perfect Package</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            All-inclusive packages with visa, meals, and sightseeing. 
+            All-inclusive packages with accommodation, sightseeing, transfers, visa & insurance. 
             Airfare excluded. Select your preferences and get an instant estimate.
           </p>
         </div>
@@ -125,14 +125,10 @@ const PackageCustomizer = () => {
                   <CheckCircle2 className="h-5 w-5 text-primary" />
                   All-Inclusive Package Includes:
                 </h4>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Visa Processing</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>All Meals</span>
+                    <span>Accommodation</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary" />
@@ -140,7 +136,15 @@ const PackageCustomizer = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Accommodation</span>
+                    <span>Transfers</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    <span>Visa</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    <span>Insurance</span>
                   </div>
                 </div>
               </div>
@@ -152,7 +156,7 @@ const PackageCustomizer = () => {
                     <div>
                       <h3 className="text-lg font-semibold mb-2">Estimated Package Price</h3>
                       <p className="text-sm text-muted-foreground mb-4">
-                        All-inclusive: visa, accommodation, meals, sightseeing & transfers
+                        All-inclusive: accommodation, sightseeing, transfers, visa & insurance
                       </p>
                       <div className="flex items-center gap-4 mb-4">
                         <Badge variant="destructive" className="flex items-center gap-1">
