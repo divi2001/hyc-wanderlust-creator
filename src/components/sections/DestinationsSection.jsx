@@ -132,11 +132,10 @@ const DestinationsSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Explore Our <span className="bg-hero-gradient bg-clip-text text-transparent">12 Destinations</span>
+            Explore Our <span className="bg-hero-gradient bg-clip-text text-transparent">100+ Packages</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From tropical paradises to bustling metropolises, discover handpicked destinations 
-            with tailor-made packages designed for your perfect getaway.
+            Tailor-made packages to incredible countries loved by the majority of Indian travellers.
           </p>
         </div>
 
