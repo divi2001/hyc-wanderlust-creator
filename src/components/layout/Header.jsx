@@ -29,16 +29,11 @@ const Header = () => {
 
         {/* Main navigation */}
         <div className="flex items-center justify-between py-4">
-          <div className="flex items-center gap-3">
-            <img src={hycLogo} alt="HYC Travels Logo" className="h-20 w-auto" />
-            <div className="flex flex-col">
-              <h1 className="text-2xl font-bold bg-hero-gradient bg-clip-text text-transparent leading-tight">
-                HYC Travels
-              </h1>
-              <span className="text-xs text-muted-foreground">
-                Travel Beyond Borders
-              </span>
-            </div>
+          <div className="flex flex-col items-center gap-2">
+            <img src={hycLogo} alt="HYC Travels - Travel Beyond Borders" className="h-32 w-auto" />
+            <span className="text-sm text-muted-foreground font-medium">
+              Travel Beyond Borders
+            </span>
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">
