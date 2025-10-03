@@ -29,10 +29,10 @@ const Header = () => {
         </div>
 
         {/* Main navigation */}
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-2">
           <div className="flex flex-col items-center gap-2">
-            <img src={hycLogo} alt="HYC Travels - Travel Beyond Borders" className="h-32 w-auto" />
-            <span className="text-sm text-muted-foreground font-medium">
+            <img src={hycLogo} alt="HYC Travels - Travel Beyond Borders" className="h-24 w-auto" />
+            <span className="text-xs text-muted-foreground font-medium">
               Travel Beyond Borders
             </span>
           </div>
@@ -53,13 +53,14 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="lg">
               Get Quote
             </Button>
-            <Button size="sm" className="bg-hero-gradient hover:shadow-glow">
+            <Button size="lg" className="bg-hero-gradient hover:shadow-glow">
               Book Now
             </Button>
           </div>
+
         </div>
       </div>
     </header>

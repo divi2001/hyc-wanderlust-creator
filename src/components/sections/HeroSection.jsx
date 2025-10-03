@@ -59,7 +59,7 @@ const HeroSection = () => {
               <div className="flex items-center justify-center mb-2">
                 <Calendar className="h-6 w-6 text-secondary" />
               </div>
-              <div className="text-2xl font-bold">500+</div>
+              <div className="text-2xl font-bold">100+</div>
               <div className="text-sm text-white/80">Packages</div>
             </div>
             <div className="text-center">
