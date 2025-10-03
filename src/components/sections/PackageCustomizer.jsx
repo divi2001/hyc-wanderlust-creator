@@ -191,9 +191,8 @@ const PackageCustomizer = () => {
 
               {/* Payment Structure */}
               <div className="bg-muted/50 p-6 rounded-lg border-2 border-destructive/20">
-                <h3 className="font-semibold mb-4 flex items-center gap-2">
-                  Payment Structure
-                  <Badge variant="destructive" className="text-xs">Non-Refundable & Non-Transferable</Badge>
+                <h3 className="font-semibold mb-4">
+                  Pay in full 100% advance or as per below mentioned Payment Structure
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                   <div className="text-center p-4 bg-background rounded-lg border border-destructive/20">
@@ -212,11 +211,11 @@ const PackageCustomizer = () => {
                     <div className="text-xs text-muted-foreground mt-1">60 days before departure</div>
                   </div>
                 </div>
-                <p className="text-xs text-destructive font-semibold mt-4 text-center border-t border-destructive/20 pt-4">
-                  ⚠️ ALL PAYMENTS ARE NON-REFUNDABLE & NON-TRANSFERABLE
-                </p>
                 <p className="text-xs text-muted-foreground mt-2 text-center">
                   *T&C Apply. Prices may vary without prior notice. Airfare is excluded and charged separately.
+                </p>
+                <p className="text-xs text-destructive font-semibold mt-4 text-center border-t border-destructive/20 pt-4">
+                  ⚠️ ALL PAYMENTS ARE NON-REFUNDABLE & NON-TRANSFERABLE
                 </p>
               </div>
               
@@ -234,4 +233,4 @@ const PackageCustomizer = () => {
   );
 };
 
-export default PackageCustomizer;
+export default PackageCustomizer

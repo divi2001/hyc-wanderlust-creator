@@ -1,6 +1,8 @@
+// src/components/sections/FeaturesSection.jsx
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Shield, Headphones, CreditCard, Plane, FileText, MapPin, Users } from "lucide-react";
+import hycLogo from "@/assets/hyc-logo.png";
 
 const features = [
   {
@@ -16,12 +18,12 @@ const features = [
   {
     icon: Headphones,
     title: "24/7 Support",
-    description: "Round-the-clock assistance before, during, and after your journey"
+    description: "Round-the-clock support during your journey"
   },
   {
     icon: CreditCard,
     title: "Flexible Payments",
-    description: "Easy payment structure: 10% booking + installment options"
+    description: "Easy payment structure: 10% booking + 40% + 50% installments"
   },
   {
     icon: Plane,
@@ -36,7 +38,7 @@ const features = [
   {
     icon: MapPin,
     title: "12 Prime Destinations",
-    description: "Handpicked countries with the best experiences and accommodations"
+    description: "Most enjoyed and frequently visited countries by Indian overseas tourists - chosen based on popular recommendations and traveler reviews"
   },
   {
     icon: Users,
@@ -73,20 +75,65 @@ const FeaturesSection = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4">
-        {/* Features */}
-        <div className="text-center mb-16">
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-            Why Choose HYC Travels
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Your Journey, <span className="bg-hero-gradient bg-clip-text text-transparent">Our Expertise</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Experience hassle-free travel with our comprehensive services, 
-            transparent policies, and commitment to creating unforgettable memories.
-          </p>
+        {/* Header with Logos */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="w-24 h-24 border-2 border-primary rounded-lg flex items-center justify-center">
+            <img src={hycLogo} alt="HYC Travels Logo" className="w-20 h-20 object-contain" />
+          </div>
+          <div className="text-center flex-1 mx-4">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+              Why Choose HYC Travels
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Your Journey, <span className="bg-hero-gradient bg-clip-text text-transparent">Our Expertise</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Experience hassle-free travel with our comprehensive services, 
+              transparent policies, and commitment to creating unforgettable memories.
+            </p>
+          </div>
+          <div className="w-24 h-24 border-2 border-primary rounded-lg flex items-center justify-center">
+            <img src={hycLogo} alt="HYC Travels Logo" className="w-20 h-20 object-contain" />
+          </div>
         </div>
 
+        {/* Special Discounts Section */}
+        {/* <div className="mb-16 p-8 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl border border-primary/20">
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-8">
+            🎉 Special Group Discounts 🎉
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+              <h4 className="font-bold text-lg mb-3 text-primary">👨‍💼 Professionals</h4>
+              <p className="text-sm">Special rates for corporate professionals, IT employees, doctors, engineers, and government employees</p>
+            </div>
+            <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+              <h4 className="font-bold text-lg mb-3 text-primary">👵 Senior Citizens</h4>
+              <p className="text-sm">Exclusive discounts for travelers aged 60+ with additional assistance services</p>
+            </div>
+            <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+              <h4 className="font-bold text-lg mb-3 text-primary">👩‍🎓 Students & Women Groups</h4>
+              <p className="text-sm">Special rates for student groups, all-women trips, and female travelers</p>
+            </div>
+            <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+              <h4 className="font-bold text-lg mb-3 text-primary">👨‍👩‍👧‍👦 Family Packages</h4>
+              <p className="text-sm">Discounted rates for family bookings (4+ members) with kids' special activities</p>
+            </div>
+            <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+              <h4 className="font-bold text-lg mb-3 text-primary">👥 Large Groups</h4>
+              <p className="text-sm">Additional discounts for groups of 8+ people traveling together</p>
+            </div>
+            <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+              <h4 className="font-bold text-lg mb-3 text-primary">🎊 Festival Specials</h4>
+              <p className="text-sm">Seasonal discounts during Diwali, Christmas, New Year, and summer vacations</p>
+            </div>
+          </div>
+          <p className="text-center mt-6 text-sm text-muted-foreground">
+            *Discounts applicable on base package price. Terms and conditions apply.
+          </p>
+        </div> */}
+
+        {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {features.map((feature, index) => (
             <Card key={index} className="text-center hover:shadow-premium transition-all duration-300 hover:-translate-y-1">
