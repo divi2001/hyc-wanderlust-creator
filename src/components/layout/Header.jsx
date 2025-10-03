@@ -1,3 +1,4 @@
+// src/components/layout/Header.jsx
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin } from "lucide-react";
 import hycLogo from "@/assets/hyc-logo.png";

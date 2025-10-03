@@ -1,3 +1,4 @@
+// src/components/sections/HeroSection.jsx
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Calendar, Users } from "lucide-react";
 import heroImage from "@/assets/hero-travel.jpg";
