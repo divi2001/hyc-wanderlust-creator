@@ -6,7 +6,7 @@ import { MapPin, Star, Clock } from "lucide-react";
 const destinations = [
   {
     id: 1,
-    name: "Dubai, UAE",
+    name: "U.A.E. (Dubai)",
     image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop",
     description: "Luxury shopping, stunning architecture, and desert adventures",
     packages: 45,
@@ -16,53 +16,53 @@ const destinations = [
   },
   {
     id: 2,
-    name: "Paris, France",
-    image: "https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=400&h=300&fit=crop",
-    description: "Romance, art, cuisine, and iconic landmarks",
-    packages: 38,
-    rating: 4.8,
-    duration: "5-8 days",
-    startingPrice: "₹85,000"
+    name: "Thailand",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+    description: "Pristine beaches, temples, and Thai cuisine",
+    packages: 55,
+    rating: 4.7,
+    duration: "5-10 days",
+    startingPrice: "₹40,000"
   },
   {
     id: 3,
-    name: "Tokyo, Japan",
-    image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=300&fit=crop",
-    description: "Traditional culture meets modern innovation",
-    packages: 42,
-    rating: 4.9,
-    duration: "6-9 days",
-    startingPrice: "₹78,000"
+    name: "Vietnam",
+    image: "https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=400&h=300&fit=crop",
+    description: "Rich culture, stunning landscapes, and delicious street food",
+    packages: 38,
+    rating: 4.8,
+    duration: "5-8 days",
+    startingPrice: "₹48,000"
   },
   {
     id: 4,
-    name: "Bali, Indonesia",
-    image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=400&h=300&fit=crop",
-    description: "Tropical paradise with temples and beaches",
-    packages: 52,
-    rating: 4.7,
-    duration: "4-7 days",
-    startingPrice: "₹45,000"
+    name: "Abu Dhabi",
+    image: "https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=400&h=300&fit=crop",
+    description: "Grand mosques, cultural heritage, and modern luxury",
+    packages: 42,
+    rating: 4.8,
+    duration: "3-6 days",
+    startingPrice: "₹62,000"
   },
   {
     id: 5,
-    name: "London, UK",
+    name: "Maldives",
+    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=300&fit=crop",
+    description: "Overwater villas and crystal-clear lagoons",
+    packages: 25,
+    rating: 4.9,
+    duration: "4-7 days",
+    startingPrice: "₹80,000"
+  },
+  {
+    id: 6,
+    name: "U.K. (London)",
     image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=300&fit=crop",
     description: "Royal heritage, museums, and vibrant culture",
     packages: 35,
     rating: 4.6,
     duration: "5-8 days",
     startingPrice: "₹95,000"
-  },
-  {
-    id: 6,
-    name: "New York, USA",
-    image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400&h=300&fit=crop",
-    description: "The city that never sleeps, Broadway, and skyscrapers",
-    packages: 40,
-    rating: 4.8,
-    duration: "5-7 days",
-    startingPrice: "₹120,000"
   },
   {
     id: 7,
@@ -76,18 +76,38 @@ const destinations = [
   },
   {
     id: 8,
-    name: "Thailand",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
-    description: "Pristine beaches, temples, and Thai cuisine",
-    packages: 55,
+    name: "Indonesia (Bali)",
+    image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=400&h=300&fit=crop",
+    description: "Tropical paradise with temples and beaches",
+    packages: 52,
     rating: 4.7,
-    duration: "5-10 days",
-    startingPrice: "₹40,000"
+    duration: "4-7 days",
+    startingPrice: "₹45,000"
   },
   {
     id: 9,
+    name: "Japan",
+    image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=300&fit=crop",
+    description: "Traditional culture meets modern innovation",
+    packages: 42,
+    rating: 4.9,
+    duration: "6-9 days",
+    startingPrice: "₹78,000"
+  },
+  {
+    id: 10,
+    name: "Malaysia",
+    image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=400&h=300&fit=crop",
+    description: "Diverse culture, tropical islands, and vibrant cities",
+    packages: 44,
+    rating: 4.7,
+    duration: "4-7 days",
+    startingPrice: "₹42,000"
+  },
+  {
+    id: 11,
     name: "Australia",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=400&h=300&fit=crop",
     description: "Unique wildlife, stunning coastlines, and adventure",
     packages: 32,
     rating: 4.8,
@@ -95,34 +115,14 @@ const destinations = [
     startingPrice: "₹150,000"
   },
   {
-    id: 10,
-    name: "Switzerland",
-    image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=400&h=300&fit=crop",
-    description: "Alpine beauty, pristine lakes, and charming towns",
-    packages: 28,
-    rating: 4.9,
-    duration: "6-9 days",
-    startingPrice: "₹110,000"
-  },
-  {
-    id: 11,
-    name: "Maldives",
-    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=300&fit=crop",
-    description: "Overwater villas and crystal-clear lagoons",
-    packages: 25,
-    rating: 4.9,
-    duration: "4-7 days",
-    startingPrice: "₹80,000"
-  },
-  {
     id: 12,
-    name: "Turkey",
-    image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400&h=300&fit=crop",
-    description: "Rich history, stunning landscapes, and unique culture",
-    packages: 30,
-    rating: 4.6,
-    duration: "6-8 days",
-    startingPrice: "₹60,000"
+    name: "U.S.A.",
+    image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400&h=300&fit=crop",
+    description: "Iconic cities, natural wonders, and endless possibilities",
+    packages: 40,
+    rating: 4.8,
+    duration: "7-14 days",
+    startingPrice: "₹120,000"
   }
 ];
 

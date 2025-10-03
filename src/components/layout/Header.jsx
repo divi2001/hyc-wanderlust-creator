@@ -30,7 +30,7 @@ const Header = () => {
         {/* Main navigation */}
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <img src={hycLogo} alt="HYC Travels Logo" className="h-12 w-auto" />
+            <img src={hycLogo} alt="HYC Travels Logo" className="h-20 w-auto" />
             <div className="flex flex-col">
               <h1 className="text-2xl font-bold bg-hero-gradient bg-clip-text text-transparent leading-tight">
                 HYC Travels

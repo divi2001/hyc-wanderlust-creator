@@ -39,7 +39,7 @@ const HeroSection = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-white/50 text-white hover:bg-white/10 text-lg px-8 py-6 backdrop-blur-sm"
+              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-black text-lg px-8 py-6 backdrop-blur-sm transition-all duration-300"
             >
               View Packages
             </Button>
