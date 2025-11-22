@@ -119,6 +119,19 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* ===== START: Google Translate Widget Styles ===== */
+
+  /* HIDE the "Powered by" attribution from the hidden widget.
+     These are the only rules we need now. */
+  .goog-logo-link {
+    @apply hidden !important;
+  }
+  .skiptranslate > div:last-child {
+    @apply hidden !important;
+  }
+
+  /* ===== END: Google Translate Widget Styles ===== */
 }
 
 @layer components {

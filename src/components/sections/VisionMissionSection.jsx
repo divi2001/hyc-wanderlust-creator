@@ -23,9 +23,7 @@ const VisionMissionSection = () => {
             </CardHeader>
             <CardContent>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                To be India's most trusted travel partner, inspiring millions to explore the world with 
-                confidence and joy. We envision a future where every Indian traveller experiences 
-                seamless, memorable journeys that broaden horizons and create lasting memories.
+                Empowering every Indian citizen to explore the world by making overseas travel affordable and accessible.
               </p>
             </CardContent>
           </Card>
@@ -41,10 +39,7 @@ const VisionMissionSection = () => {
             </CardHeader>
             <CardContent>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                To deliver exceptional, tailor-made travel experiences to destinations loved by Indian 
-                travellers. We are committed to providing all-inclusive packages with transparent pricing, 
-                comprehensive support, and personalized service that exceeds expectations at every step 
-                of your journey.
+                To democratize international travel by offering affordable, sustainable, and hassle-free travel solutions, breaking down barriers and making global exploration a reality for all Indians
               </p>
             </CardContent>
           </Card>

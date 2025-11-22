@@ -1,74 +1,137 @@
 // src/components/sections/FeaturesSection.jsx
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Shield, Headphones, CreditCard, Plane, FileText, MapPin, Users } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  CheckCircle,
+  Shield,
+  Headphones,
+  CreditCard,
+  Plane,
+  FileText,
+  MapPin,
+  Users,
+} from "lucide-react";
 import hycLogo from "@/assets/hyc-logo.png";
 
 const features = [
   {
     icon: CheckCircle,
     title: "Tailor-Made Packages",
-    description: "Every itinerary is customized to your preferences, budget, and travel style"
+    description:
+      "Every itinerary is customized to your preferences, budget, and travel style",
   },
   {
     icon: Shield,
     title: "Trusted Partners",
-    description: "Visa processing through verified partners with transparent policies"
+    description:
+      "Visa processing through verified partners with transparent policies",
   },
   {
     icon: Headphones,
     title: "24/7 Support",
-    description: "Round-the-clock support during your journey"
+    description: "Round-the-clock support during your journey",
   },
   {
     icon: CreditCard,
     title: "Flexible Payments",
-    description: "Easy payment structure: 10% booking + 40% + 50% installments"
+    description: "Easy payment structure: 10% booking + 40% + 50% installments",
   },
   {
     icon: Plane,
     title: "Flight Flexibility",
-    description: "Book flights independently or let us handle it at actual cost"
+    description:
+      "Book flights independently or let us handle it at actual cost",
   },
   {
     icon: FileText,
     title: "Detailed Itineraries",
-    description: "Day-wise PDF itineraries sent via WhatsApp and email"
+    description: "Day-wise PDF itineraries sent via WhatsApp and email",
   },
   {
     icon: MapPin,
     title: "12 Prime Destinations",
-    description: "Most enjoyed and frequently visited countries by Indian overseas tourists - chosen based on popular recommendations and traveler reviews"
+    description:
+      "Most enjoyed and frequently visited countries by Indian overseas tourists - chosen based on popular recommendations and traveler reviews",
   },
   {
     icon: Users,
     title: "Group Discounts",
-    description: "Special rates for professionals, senior citizens, and groups"
-  }
+    description: "Special rates for professionals, senior citizens, and groups",
+  },
 ];
 
+// const testimonials = [
+//   {
+//     name: "Priya Sharma",
+//     location: "Mumbai",
+//     text: "HYC Travels made our Dubai trip absolutely magical! The itinerary was perfect and the 4-star hotel exceeded expectations.",
+//     rating: 5,
+//     destination: "Dubai"
+//   },
+//   {
+//     name: "Rajesh Patel",
+//     location: "Delhi",
+//     text: "Professional service from booking to return. The payment structure made it easy to plan. Highly recommended!",
+//     rating: 5,
+//     destination: "Switzerland"
+//   },
+//   {
+//     name: "Anita Kumar",
+//     location: "Bangalore",
+//     text: "The team handled everything perfectly - visa guidance, flight bookings, and daily itineraries. Stress-free vacation!",
+//     rating: 5,
+//     destination: "Paris"
+//   }
+// ];
 const testimonials = [
   {
     name: "Priya Sharma",
     location: "Mumbai",
-    text: "HYC Travels made our Dubai trip absolutely magical! The itinerary was perfect and the 4-star hotel exceeded expectations.",
+    text: "HYC Travels made our Dubai trip absolutely magical! The 24/7 support during our journey was incredible - they were always available whenever we needed assistance!",
     rating: 5,
-    destination: "Dubai"
+    destination: "Dubai",
   },
   {
     name: "Rajesh Patel",
-    location: "Delhi",
-    text: "Professional service from booking to return. The payment structure made it easy to plan. Highly recommended!",
+    location: "Pune",
+    text: "Professional service from booking to return. The payment structure made it easy to plan. Their round-the-clock assistance gave us complete peace of mind throughout our Thailand trip!",
     rating: 5,
-    destination: "Switzerland"
+    destination: "Thailand",
   },
   {
     name: "Anita Kumar",
-    location: "Bangalore",
-    text: "The team handled everything perfectly - visa guidance, flight bookings, and daily itineraries. Stress-free vacation!",
+    location: "Chhatrapati Sambhaji Nagar",
+    text: "The team handled everything perfectly - visa guidance, hotel bookings, and daily itineraries. The constant availability of support made our vacation truly stress-free!",
     rating: 5,
-    destination: "Paris"
-  }
+    destination: "Singapore",
+  },
+  {
+    name: "Suresh Iyer",
+    location: "Ahilya Nagar",
+    text: "Amazing experience with HYC Travels! Their 24/7 customer care was exceptional - they provided wonderful local recommendations and made our Malaysia trip memorable!",
+    rating: 5,
+    destination: "Malaysia",
+  },
+  {
+    name: "Meera Deshpande",
+    location: "Mumbai",
+    text: "The Bali package was perfectly curated. What stood out was their always-available support - they helped us with amazing local experiences and dining suggestions!",
+    rating: 5,
+    destination: "Indonesia",
+  },
+  {
+    name: "Aditya Joshi",
+    location: "Pune",
+    text: "Our Japan trip was seamless thanks to HYC's continuous guidance. They were just a call away at any time, enhancing our experience with great insights!",
+    rating: 5,
+    destination: "Japan",
+  },
 ];
 
 const FeaturesSection = () => {
@@ -78,22 +141,34 @@ const FeaturesSection = () => {
         {/* Header with Logos */}
         <div className="flex items-center justify-between mb-8">
           <div className="w-24 h-24 border-2 border-primary rounded-lg flex items-center justify-center">
-            <img src={hycLogo} alt="HYC Travels Logo" className="w-20 h-20 object-contain" />
+            <img
+              src={hycLogo}
+              alt="HYC Travels Logo"
+              className="w-20 h-20 object-contain"
+            />
           </div>
           <div className="text-center flex-1 mx-4">
             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
               Why Choose HYC Travels
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Your Journey, <span className="bg-hero-gradient bg-clip-text text-transparent">Our Expertise</span>
+              Your Journey,{" "}
+              <span className="bg-hero-gradient bg-clip-text text-transparent">
+                Our Expertise
+              </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Experience hassle-free travel with our comprehensive services, 
-              transparent policies, and commitment to creating unforgettable memories.
+              Experience hassle-free travel with our comprehensive services,
+              transparent policies, and commitment to creating unforgettable
+              memories.
             </p>
           </div>
           <div className="w-24 h-24 border-2 border-primary rounded-lg flex items-center justify-center">
-            <img src={hycLogo} alt="HYC Travels Logo" className="w-20 h-20 object-contain" />
+            <img
+              src={hycLogo}
+              alt="HYC Travels Logo"
+              className="w-20 h-20 object-contain"
+            />
           </div>
         </div>
 
@@ -136,7 +211,10 @@ const FeaturesSection = () => {
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {features.map((feature, index) => (
-            <Card key={index} className="text-center hover:shadow-premium transition-all duration-300 hover:-translate-y-1">
+            <Card
+              key={index}
+              className="text-center hover:shadow-premium transition-all duration-300 hover:-translate-y-1"
+            >
               <CardHeader>
                 <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   <feature.icon className="h-6 w-6 text-primary" />
@@ -153,7 +231,7 @@ const FeaturesSection = () => {
         </div>
 
         {/* Testimonials */}
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <Badge className="mb-4 bg-secondary/10 text-secondary border-secondary/20">
             Happy Travelers
           </Badge>
@@ -186,7 +264,62 @@ const FeaturesSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div> */}
+
+
+
+        {/* Testimonials */}
+        <div className="text-center mb-12">
+          <Badge className="mb-4 bg-secondary/10 text-secondary border-secondary/20">
+            Happy Travelers
+          </Badge>
+          <h3 className="text-3xl md:text-4xl font-bold mb-6">
+            What Our Clients Say
+          </h3>
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((testimonial, index) => (
+            <Card
+              key={index}
+              className="hover:shadow-premium transition-all duration-300"
+            >
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <div>
+                    <CardTitle className="text-lg">
+                      {testimonial.name}
+                    </CardTitle>
+                    <CardDescription>{testimonial.location}</CardDescription>
+                  </div>
+                  <Badge variant="secondary">{testimonial.destination}</Badge>
+                </div>
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className={`w-4 h-4 ${
+                        i < testimonial.rating
+                          ? "text-yellow-400 fill-current"
+                          : "text-gray-300 fill-current"
+                      }`}
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground leading-relaxed italic">
+                  "{testimonial.text}"
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        
 
         {/* CTA Section */}
         <div className="text-center mt-16 p-8 bg-hero-gradient rounded-2xl text-white">
@@ -194,7 +327,8 @@ const FeaturesSection = () => {
             Ready to Plan Your Dream Vacation?
           </h3>
           <p className="text-lg mb-6 text-white/90">
-            Get a personalized quote in just 5 minutes. Our travel experts are ready to help!
+            Get a personalized quote in just 5 minutes. Our travel experts are
+            ready to help!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors">

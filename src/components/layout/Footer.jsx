@@ -108,7 +108,7 @@ const Footer = () => {
               <li>• Prices may vary without prior notice. All packages are subject to availability.</li>
               <li>• Flight charges are additional and at actual cost. Booking can be done independently or through us.</li>
               <li>• Visa processing is handled by our trusted partners. HYC Travels has no role in visa approval.</li>
-              <li>• 10% booking amount is non-refundable. Balance payments as per schedule.</li>
+              <li>• All payments are non refundable and non transferable T & C Apply.</li>
               <li>• Special discounts for professionals and senior citizens at sole discretion of HYC Travels.</li>
             </ul>
           </div>
