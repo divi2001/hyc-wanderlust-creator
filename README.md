@@ -1,73 +1,89 @@
-# Welcome to your Lovable project
+# HYC Travels
 
-## Project info
+Marketing site for **HYC Travels** — tailor-made travel packages to 12 destinations, with a
+package customizer, destination catalogue, and enquiry flow.
 
-**URL**: https://lovable.dev/projects/5e2d86b7-5648-426d-9e74-6d797dd84000
+**Live**: https://hyc-wanderlust-creator.vercel.app/
 
-## How can I edit this code?
+## Tech stack
 
-There are several ways of editing your application.
+- Vite
+- React 18
+- shadcn/ui (Radix primitives)
+- Tailwind CSS
+- React Router
 
-**Use Lovable**
+## Getting started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5e2d86b7-5648-426d-9e74-6d797dd84000) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Requires Node.js & npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# 1. Clone the repository.
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 2. Enter the project directory.
+cd hyc-wanderlust-creator
 
-# Step 3: Install the necessary dependencies.
+# 3. Install dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. Start the dev server with auto-reloading.
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The dev server runs on http://localhost:8080.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Scripts
 
-**Use GitHub Codespaces**
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite dev server |
+| `npm run build` | Production build to `dist/` |
+| `npm run build:dev` | Development-mode build |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run ESLint |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project structure
 
-## What technologies are used for this project?
+```
+public/            Static assets served at the site root (favicons, manifest, OG image)
+src/assets/        Imported image assets (logo, hero)
+src/components/
+  layout/          Header, Footer
+  sections/        Hero, Destinations, Features, Vision & Mission, Package Customizer
+  ui/              shadcn/ui components
+src/pages/         Route components (Index, NotFound)
+```
 
-This project is built with:
+## Branding assets
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Brand colours are navy `#2e2483` and red `#e3000e`, taken from the logo at
+`src/assets/hyc-logo.png`.
 
-## How can I deploy this project?
+Every icon and share image in `public/` is derived from that one logo file:
 
-Simply open [Lovable](https://lovable.dev/projects/5e2d86b7-5648-426d-9e74-6d797dd84000) and click on Share -> Publish.
+| File | Used for |
+| --- | --- |
+| `favicon.ico` | Browser tab (16/32/48px) |
+| `favicon-16x16.png`, `favicon-32x32.png` | Modern browser tab icons |
+| `apple-touch-icon.png` | iOS home screen (180px) |
+| `icon-192.png`, `icon-512.png` | PWA / Android launcher |
+| `icon-maskable-512.png` | Android adaptive (maskable) icon |
+| `og-image.png` | WhatsApp / Facebook / LinkedIn / X previews (1200×630) |
+| `og-image-square.png` | Consumers that crop previews to 1:1 |
 
-## Can I connect a custom domain to my Lovable project?
+To regenerate them after a logo change, re-run the icon generation step against
+`src/assets/hyc-logo.png` and keep the same filenames — `index.html` and
+`site.webmanifest` reference them by path.
 
-Yes, you can!
+## Deployment
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Deployed on Vercel; pushes to `main` deploy automatically.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+If the social preview image looks stale after a deploy, the platform has cached it —
+re-scrape via the [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
+or [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/). WhatsApp caches
+previews per URL for roughly a week.
+
+Update the absolute URLs in `index.html` (`og:url`, `og:image`, `canonical`) if the site
+moves to a custom domain.
