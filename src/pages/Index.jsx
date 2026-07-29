@@ -1,17 +1,21 @@
 import HeroSection from "@/components/sections/HeroSection";
-import DestinationsSection from "@/components/sections/DestinationsSection";
+import VisionMissionSection from "@/components/sections/VisionMissionSection";
+import InternationalSection from "@/components/sections/InternationalSection";
+import DomesticSection from "@/components/sections/DomesticSection";
 import PackageCustomizer from "@/components/sections/PackageCustomizer";
 import FeaturesSection from "@/components/sections/FeaturesSection";
-import VisionMissionSection from "@/components/sections/VisionMissionSection";
+import ContactSection from "@/components/sections/ContactSection";
 
 const Index = () => {
   return (
     <div>
       <HeroSection />
       <VisionMissionSection />
-      <DestinationsSection />
+      <InternationalSection />
+      <DomesticSection />
       <PackageCustomizer />
       <FeaturesSection />
+      <ContactSection />
     </div>
   );
 };

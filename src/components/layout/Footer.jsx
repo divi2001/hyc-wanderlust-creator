@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Phone, Mail, MapPin, Instagram, Facebook, Twitter, Globe } from "lucide-react";
+import { Phone, Mail, Instagram, MessageCircle } from "lucide-react";
+import { contact } from "@/data/site";
 
 const Footer = () => {
   return (
@@ -17,18 +18,13 @@ const Footer = () => {
               Creating memories that last a lifetime with personalized 
               journeys to the world's most beautiful destinations.
             </p>
-            <div className="flex space-x-4">
-              <Button variant="ghost" size="sm" className="text-background hover:text-secondary">
-                <Instagram className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="sm" className="text-background hover:text-secondary">
-                <Facebook className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="sm" className="text-background hover:text-secondary">
-                <Twitter className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="sm" className="text-background hover:text-secondary">
-                <Globe className="h-4 w-4" />
+            {/* Instagram is the only social account the client operates. */}
+            <div className="flex gap-3">
+              <Button asChild variant="ghost" size="sm" className="text-background hover:text-secondary gap-2">
+                <a href={contact.instagram} target="_blank" rel="noopener noreferrer">
+                  <Instagram className="h-4 w-4" />
+                  {contact.instagramHandle}
+                </a>
               </Button>
             </div>
           </div>
@@ -37,12 +33,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#destinations" className="text-background/80 hover:text-secondary transition-colors">Destinations</a></li>
-              <li><a href="#packages" className="text-background/80 hover:text-secondary transition-colors">Packages</a></li>
+              <li><a href="#international" className="text-background/80 hover:text-secondary transition-colors">International Packages</a></li>
+              <li><a href="#domestic" className="text-background/80 hover:text-secondary transition-colors">Domestic Tours</a></li>
+              <li><a href="#packages" className="text-background/80 hover:text-secondary transition-colors">Customize a Package</a></li>
               <li><a href="#about" className="text-background/80 hover:text-secondary transition-colors">About Us</a></li>
-              <li><a href="#testimonials" className="text-background/80 hover:text-secondary transition-colors">Testimonials</a></li>
               <li><a href="#contact" className="text-background/80 hover:text-secondary transition-colors">Contact</a></li>
-              <li><a href="#terms" className="text-background/80 hover:text-secondary transition-colors">Terms & Conditions</a></li>
             </ul>
           </div>
 
@@ -50,22 +45,23 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Contact Us</h4>
             <div className="space-y-3 text-sm">
-              <div className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-secondary" />
-                <span className="text-background/80">+91 98765 43210</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-secondary" />
-                <span className="text-background/80">info@hyctravel.com</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <MapPin className="h-4 w-4 text-secondary mt-0.5" />
-                <span className="text-background/80">
-                  123 Business Hub,<br />
-                  Andheri East, Mumbai,<br />
-                  Maharashtra 400069
-                </span>
-              </div>
+              <a href={contact.phoneHref} className="flex items-center gap-3 hover:text-secondary transition-colors">
+                <Phone className="h-4 w-4 text-secondary shrink-0" />
+                <span className="text-background/80">{contact.phone}</span>
+              </a>
+              <a
+                href={contact.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 hover:text-secondary transition-colors"
+              >
+                <MessageCircle className="h-4 w-4 text-secondary shrink-0" />
+                <span className="text-background/80">WhatsApp</span>
+              </a>
+              <a href={contact.emailHref} className="flex items-center gap-3 hover:text-secondary transition-colors">
+                <Mail className="h-4 w-4 text-secondary shrink-0" />
+                <span className="text-background/80">{contact.email}</span>
+              </a>
             </div>
           </div>
 
@@ -93,7 +89,7 @@ const Footer = () => {
         <div className="border-t border-background/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm text-background/60">
-              © 2024 HYC Travels. All rights reserved.
+              © {new Date().getFullYear()} HYC Travels. All rights reserved.
             </div>
             <div className="flex items-center gap-6 text-sm text-background/60">
               <a href="#privacy" className="hover:text-secondary transition-colors">Privacy Policy</a>

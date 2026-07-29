@@ -1,8 +1,11 @@
 // src/components/sections/FeaturesSection.jsx
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Shield, Headphones, CreditCard, Plane, FileText, MapPin, Users } from "lucide-react";
+import { CheckCircle, Shield, Headphones, CreditCard, Plane, FileText, MapPin, Users, Instagram, Phone } from "lucide-react";
 import hycLogo from "@/assets/hyc-logo.png";
+import { Button } from "@/components/ui/button";
+import { contact } from "@/data/site";
+import { DOMESTIC_TOTAL, internationalPackages } from "@/data/packages";
 
 const features = [
   {
@@ -37,43 +40,19 @@ const features = [
   },
   {
     icon: MapPin,
-    title: "12 Prime Destinations",
-    description: "Most enjoyed and frequently visited countries by Indian overseas tourists - chosen based on popular recommendations and traveler reviews"
+    title: `${internationalPackages.length} Countries + ${DOMESTIC_TOTAL} Domestic Tours`,
+    description: "Overseas circuits most loved by Indian travellers, plus pilgrimage and hill-station tours across India and Nepal"
   },
   {
     icon: Users,
-    title: "Group Discounts",
-    description: "Special rates for professionals, senior citizens, and groups"
-  }
-];
-
-const testimonials = [
-  {
-    name: "Priya Sharma",
-    location: "Mumbai",
-    text: "HYC Travels made our Dubai trip absolutely magical! The itinerary was perfect and the 4-star hotel exceeded expectations.",
-    rating: 5,
-    destination: "Dubai"
-  },
-  {
-    name: "Rajesh Patel",
-    location: "Delhi",
-    text: "Professional service from booking to return. The payment structure made it easy to plan. Highly recommended!",
-    rating: 5,
-    destination: "Switzerland"
-  },
-  {
-    name: "Anita Kumar",
-    location: "Bangalore",
-    text: "The team handled everything perfectly - visa guidance, flight bookings, and daily itineraries. Stress-free vacation!",
-    rating: 5,
-    destination: "Paris"
+    title: "Professional Discounts",
+    description: "Special rates for Corporates, Teachers, Doctors, CA / CS, Lawyers, Government staff and the Armed Forces"
   }
 ];
 
 const FeaturesSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-muted/30 to-background">
+    <section id="why" className="py-20 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4">
         {/* Header with Logos */}
         <div className="flex items-center justify-between mb-8">
@@ -152,40 +131,21 @@ const FeaturesSection = () => {
           ))}
         </div>
 
-        {/* Testimonials */}
-        <div className="text-center mb-12">
-          <Badge className="mb-4 bg-secondary/10 text-secondary border-secondary/20">
-            Happy Travelers
-          </Badge>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6">
-            What Our Clients Say
-          </h3>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="hover:shadow-premium transition-all duration-300">
-              <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <div>
-                    <CardTitle className="text-lg">{testimonial.name}</CardTitle>
-                    <CardDescription>{testimonial.location}</CardDescription>
-                  </div>
-                  <Badge variant="secondary">{testimonial.destination}</Badge>
-                </div>
-                <div className="flex items-center gap-1">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <div key={i} className="w-4 h-4 bg-secondary rounded-full"></div>
-                  ))}
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground leading-relaxed italic">
-                  "{testimonial.text}"
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Real traveller stories live on the client's Instagram. */}
+        <div className="text-center p-8 bg-background rounded-2xl border border-border">
+          <div className="inline-flex p-3 bg-primary/10 rounded-xl mb-4">
+            <Instagram className="h-7 w-7 text-primary" />
+          </div>
+          <h3 className="text-2xl md:text-3xl font-bold mb-3">Travel Stories From Our Guests</h3>
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+            See photos and reviews from recent HYC Travels departures on Instagram.
+          </p>
+          <Button asChild size="lg" variant="outline">
+            <a href={contact.instagram} target="_blank" rel="noopener noreferrer">
+              <Instagram className="mr-2 h-4 w-4" />
+              Follow {contact.instagramHandle}
+            </a>
+          </Button>
         </div>
 
         {/* CTA Section */}
@@ -194,15 +154,23 @@ const FeaturesSection = () => {
             Ready to Plan Your Dream Vacation?
           </h3>
           <p className="text-lg mb-6 text-white/90">
-            Get a personalized quote in just 5 minutes. Our travel experts are ready to help!
+            Tell us your dates and budget — we'll send a tailored itinerary and a firm quote.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors">
-              Get Free Quote
-            </button>
-            <button className="border border-white/50 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
-              Call +91 98765 43210
-            </button>
+            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+              <a href="#contact">Get Free Quote</a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white/60 text-white bg-transparent hover:bg-white/10 hover:text-white"
+            >
+              <a href={contact.phoneHref}>
+                <Phone className="mr-2 h-4 w-4" />
+                Call {contact.phone}
+              </a>
+            </Button>
           </div>
         </div>
       </div>

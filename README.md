@@ -48,12 +48,61 @@ The dev server runs on http://localhost:8080.
 ```
 public/            Static assets served at the site root (favicons, manifest, OG image)
 src/assets/        Imported image assets (logo, hero)
+src/data/          Tour catalogue and company details — the single source of truth
+  packages.js        International + domestic tours, bilingual
+  site.js            Phone, email, Instagram, specials, rate notes
+src/contexts/
+  LanguageContext.jsx  English / Marathi toggle
 src/components/
   layout/          Header, Footer
-  sections/        Hero, Destinations, Features, Vision & Mission, Package Customizer
+  sections/        Hero, Vision & Mission, International, Domestic,
+                   Package Customizer, Features, Contact
   ui/              shadcn/ui components
 src/pages/         Route components (Index, NotFound)
 ```
+
+## Managing tour content
+
+**All pricing and itinerary content lives in `src/data/packages.js`.** No prices are
+hardcoded in components — the hero counts, the customizer dropdown and the package
+cards all derive from that file, so a rate change is a one-line edit.
+
+Bilingual fields are `{ en, mr }` objects. Where the client supplied only English,
+just omit `mr` — `pick()` in `LanguageContext` falls back to English automatically,
+so a partially translated record still renders completely. Never machine-translate
+place names or prices into Marathi; leave them English until the client supplies copy.
+
+To add a domestic tour, append to `domesticPackages`:
+
+```js
+{
+  id: 19,
+  route: { en: "Rajasthan Full Circuit" },
+  days: 14,
+  transport: TRAIN,          // shared constants defined above the array
+  meals: BD_VEG,
+  stay: HOTEL_3,
+  highlights: { en: ["…"] },
+  price: 0,
+}
+```
+
+`DOMESTIC_TOTAL` (currently 30) is what the client says they operate. The domestic
+section shows "Showing N of 30" and a "call us for tours not listed" note whenever
+the array is shorter, so the gap is stated honestly rather than hidden.
+
+### Outstanding content
+
+- **Domestic tours 19–30 are missing.** The WhatsApp export was truncated part-way
+  through entry 19 (Rajasthan Full Circuit — highlights and price never arrived).
+  Entries 1–18 are complete and verbatim.
+- **Marathi for domestic tours 4–18.** The client sent Marathi for entries 1–3 only.
+  International is fully bilingual.
+- **No postal address.** The previous placeholder ("123 Business Hub, Andheri East")
+  was removed rather than shown as fact. Add to `contact` in `src/data/site.js` when known.
+- **No testimonials.** The three previous ones were placeholder text referencing
+  Switzerland and Paris — destinations HYC does not sell — so they were replaced with
+  a link to the real Instagram account.
 
 ## Branding assets
 
