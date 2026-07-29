@@ -57,8 +57,16 @@ src/pages/         Route components (Index, NotFound)
 
 ## Branding assets
 
-Brand colours are navy `#2e2483` and red `#e3000e`, taken from the logo at
-`src/assets/hyc-logo.png`.
+Brand colours are sampled from the logo at `src/assets/hyc-logo.png`:
+
+| Colour | Hex | Used for |
+| --- | --- | --- |
+| Deep navy | `#002d5d` | Y outline, "HYC Travels" wordmark, `theme-color` |
+| Teal | `#006d88` | "Travel Beyond Borders...!!" tagline |
+| Sky | `#7fcce2` | Inner Y outline |
+| Silver | `#dae0e3` | Y body / road fill |
+
+The logo artwork already contains the tagline, so don't repeat it as adjacent text.
 
 Every icon and share image in `public/` is derived from that one logo file:
 

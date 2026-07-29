@@ -30,11 +30,9 @@ const Header = () => {
 
         {/* Main navigation */}
         <div className="flex items-center justify-between py-2">
-          <div className="flex flex-col items-center gap-2">
+          {/* The logo artwork carries the "Travel Beyond Borders...!!" tagline itself. */}
+          <div className="flex items-center">
             <img src={hycLogo} alt="HYC Travels - Travel Beyond Borders" className="h-24 w-auto" />
-            <span className="text-xs text-muted-foreground font-medium">
-              Travel Beyond Borders
-            </span>
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">
