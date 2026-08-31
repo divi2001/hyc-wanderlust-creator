@@ -46,7 +46,7 @@ const Header = () => {
 
         {/* Main navigation */}
         <div className="flex items-center justify-between py-2 gap-4">
-          {/* The logo artwork carries the "Travel Beyond Borders...!!" tagline itself. */}
+          {/* The logo artwork carries the "Travel Beyond Borders" tagline itself. */}
           <a href="#top" className="flex items-center shrink-0">
             <img src={hycLogo} alt="HYC Travels - Travel Beyond Borders" className="h-16 md:h-20 w-auto" />
           </a>

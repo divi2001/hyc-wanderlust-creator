@@ -54,10 +54,11 @@ const FeaturesSection = () => {
   return (
     <section id="why" className="py-20 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4">
-        {/* Header with Logos */}
+        {/* Header with Logos - the frames are landscape because the logo is;
+            a square frame leaves it stranded in dead space. */}
         <div className="flex items-center justify-between mb-8">
-          <div className="w-24 h-24 border-2 border-primary rounded-lg flex items-center justify-center">
-            <img src={hycLogo} alt="HYC Travels Logo" className="w-20 h-20 object-contain" />
+          <div className="w-24 h-16 border-2 border-primary rounded-lg flex items-center justify-center">
+            <img src={hycLogo} alt="HYC Travels Logo" className="w-20 h-auto object-contain" />
           </div>
           <div className="text-center flex-1 mx-4">
             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
@@ -71,8 +72,8 @@ const FeaturesSection = () => {
               transparent policies, and commitment to creating unforgettable memories.
             </p>
           </div>
-          <div className="w-24 h-24 border-2 border-primary rounded-lg flex items-center justify-center">
-            <img src={hycLogo} alt="HYC Travels Logo" className="w-20 h-20 object-contain" />
+          <div className="w-24 h-16 border-2 border-primary rounded-lg flex items-center justify-center">
+            <img src={hycLogo} alt="HYC Travels Logo" className="w-20 h-auto object-contain" />
           </div>
         </div>
 
