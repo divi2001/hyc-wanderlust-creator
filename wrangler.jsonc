@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+
+  // Must match the existing Cloudflare Worker. Without this key Wrangler reports
+  // the Worker name as "undefined" and CI falls back to overriding it.
+  "name": "hyc-wanderlust-creator",
+
+  // Required for any Worker upload. Pins the Workers runtime API behaviour.
+  "compatibility_date": "2026-08-28",
+
+  // Static-assets-only Worker: there is deliberately no "main" entry point,
+  // so no Worker script is uploaded and no runtime code runs on requests.
+  "assets": {
+    "directory": "./dist",
+
+    // The app uses react-router BrowserRouter. Workers Assets returns a hard
+    // 404 for unmatched paths by default, which would break any deep link and
+    // make the in-app NotFound page unreachable. This serves index.html
+    // instead so the client-side router can handle the path.
+    "not_found_handling": "single-page-application"
+  }
+}

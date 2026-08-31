@@ -147,8 +147,19 @@ uses the full logo for `og-image.png`.
 
 ## Deployment
 
-Deployed on **Cloudflare Pages**; pushes to `main` deploy automatically. Build command
-`npm run build`, output directory `dist`, `NODE_VERSION=20`.
+Deployed on **Cloudflare Workers (Static Assets)** as the Worker `hyc-wanderlust-creator`;
+pushes to `main` deploy automatically. Build command `npm run build`, output directory `dist`,
+deploy command `npx wrangler deploy --assets=dist`.
+
+Deployment settings live in `wrangler.jsonc` — the Worker name, the `compatibility_date`, and
+the assets config. Keep them there rather than relying on CI to supply them; without a `name`
+key Wrangler reports the Worker as `undefined` and CI has to override it.
+
+There is no `main` entry point, so this is an assets-only Worker: no Worker script is uploaded
+and no runtime code executes on requests.
+
+**Wrangler 4.x requires Node.js >= 22**, so the build environment must be on Node 22 or newer
+even though Vite itself is happy on 20. Do not pin `NODE_VERSION` below 22.
 
 DNS, CDN, SSL and hosting are all in one Cloudflare account, so there is no proxy in
 front of a separate origin and no SSL mode to keep in sync.
@@ -165,9 +176,17 @@ stay **DNS-only (grey cloud)** — proxying them breaks mail.
 
 ### Routing
 
-There is deliberately no top-level `404.html`: that is the flag Cloudflare Pages uses to treat
-the project as a single-page app and serve `index.html` for unmatched paths, which is what makes
-the in-app `NotFound` page render. Adding a `404.html` would disable SPA fallback.
+The app uses `BrowserRouter`, so unmatched paths must fall back to `index.html` for the
+client-side router to handle them. Workers Assets returns a hard 404 by default, so this is set
+explicitly in `wrangler.jsonc`:
+
+```jsonc
+"assets": { "not_found_handling": "single-page-application" }
+```
+
+Remove that and every deep link 404s and the in-app `NotFound` page becomes unreachable. (This
+is a Workers setting; it is unrelated to the presence or absence of a `404.html` file, which is
+how Cloudflare Pages decides the same thing.)
 
 ### After a deploy
 
