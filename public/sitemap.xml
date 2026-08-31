@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The site is a single-route SPA: every section (#international, #domestic,
+  #packages, #about, #contact) is an anchor on "/", not a separate URL. So one
+  entry is the whole sitemap. Add <url> blocks here if real routes are ever
+  added to src/App.jsx.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://hyctravels.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

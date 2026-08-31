@@ -3,7 +3,7 @@
 Marketing site for **HYC Travels** — tailor-made travel packages to 12 destinations, with a
 package customizer, destination catalogue, and enquiry flow.
 
-**Live**: https://hyc-wanderlust-creator.vercel.app/
+**Live**: https://hyctravels.com/
 
 ## Tech stack
 
@@ -110,12 +110,16 @@ Brand colours are sampled from the logo at `src/assets/hyc-logo.png`:
 
 | Colour | Hex | Used for |
 | --- | --- | --- |
-| Deep navy | `#002d5d` | Y outline, "HYC Travels" wordmark, `theme-color` |
-| Teal | `#006d88` | "Travel Beyond Borders...!!" tagline |
-| Sky | `#7fcce2` | Inner Y outline |
-| Silver | `#dae0e3` | Y body / road fill |
+| Deep navy | `#002658` | Y monogram and its aircraft cutout, `theme-color` |
+| Navy | `#002354` | "HYC Travels" wordmark, "Travel Beyond Borders" tagline |
+| Steel | `#4e677f` | Cruise ship |
+| Sky blue | `#10a0e8` | Wave |
 
 The logo artwork already contains the tagline, so don't repeat it as adjacent text.
+
+It is also landscape (roughly 1.39:1), so size it by height and let the width
+follow. Square containers strand it in dead space — the frames in
+`FeaturesSection.jsx` are deliberately landscape for that reason.
 
 Every icon and share image in `public/` is derived from that one logo file:
 
@@ -129,18 +133,49 @@ Every icon and share image in `public/` is derived from that one logo file:
 | `og-image.png` | WhatsApp / Facebook / LinkedIn / X previews (1200×630) |
 | `og-image-square.png` | Consumers that crop previews to 1:1 |
 
-To regenerate them after a logo change, re-run the icon generation step against
-`src/assets/hyc-logo.png` and keep the same filenames — `index.html` and
-`site.webmanifest` reference them by path.
+To regenerate them after a logo change, drop the new artwork in at
+`src/assets/hyc-logo.png` and run:
+
+```bash
+python scripts/generate-icons.py
+```
+
+That overwrites all nine files in place — `index.html` and `site.webmanifest`
+reference them by path, so the filenames must not change. The script needs
+Pillow (`pip install Pillow`); it crops the emblem for the square icons and
+uses the full logo for `og-image.png`.
 
 ## Deployment
 
-Deployed on Vercel; pushes to `main` deploy automatically.
+Deployed on **Cloudflare Pages**; pushes to `main` deploy automatically. Build command
+`npm run build`, output directory `dist`, `NODE_VERSION=20`.
 
-If the social preview image looks stale after a deploy, the platform has cached it —
-re-scrape via the [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
-or [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/). WhatsApp caches
-previews per URL for roughly a week.
+DNS, CDN, SSL and hosting are all in one Cloudflare account, so there is no proxy in
+front of a separate origin and no SSL mode to keep in sync.
 
-Update the absolute URLs in `index.html` (`og:url`, `og:image`, `canonical`) if the site
-moves to a custom domain.
+### Domain
+
+`hyctravels.com` is canonical. `www.hyctravels.com` 301-redirects to it via a Cloudflare
+Redirect Rule, and `http://` is upgraded by *Always Use HTTPS*. The registrar is GoDaddy
+but DNS is authoritative in Cloudflare — **edit DNS in Cloudflare, not GoDaddy**.
+
+The domain also carries GoDaddy email (MX `smtp.secureserver.net` / `mailstore1.secureserver.net`,
+plus SPF and a `p=quarantine` DMARC record). Those records live in the Cloudflare zone and must
+stay **DNS-only (grey cloud)** — proxying them breaks mail.
+
+### Routing
+
+There is deliberately no top-level `404.html`: that is the flag Cloudflare Pages uses to treat
+the project as a single-page app and serve `index.html` for unmatched paths, which is what makes
+the in-app `NotFound` page render. Adding a `404.html` would disable SPA fallback.
+
+### After a deploy
+
+If the social preview image looks stale, the platform has cached it — re-scrape via the
+[Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) or
+[LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/). WhatsApp caches previews
+per URL for roughly a week.
+
+If the site ever moves domain again, update the absolute URLs in `index.html`
+(`canonical`, `og:url`, `og:image`, `og:image:secure_url`, `twitter:image`), the `<loc>` in
+`public/sitemap.xml`, and the `Sitemap:` line in `public/robots.txt`.
